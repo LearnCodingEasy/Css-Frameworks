@@ -1,0 +1,201 @@
+/* Google Font */
+/* 1: Poppins */
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+/*
+===========================================================
+Todo ================= VARIABLES CSS ====================== 
+===========================================================
+*/
+:root {
+  --header-height: 3rem;
+
+  /*  Colors  */
+  --color-first: #069c54;
+  --color-first-alt: #048654;
+  --color-title: #393939;
+  --color-text: #707070;
+  --color-text-light: #a6a6a6;
+  --color-body: #fbfbfb;
+  --color-container: #ffffff;
+  --color-scroll-ber: ;
+  --color-scroll-thumb: ;
+
+  /*  Font => Size, Weight And Typography  */
+  --font-family-body: "Poppins", sans-serif;
+  --font-size-biggest: 2.25rem;
+  --font-size-h1: 1.5rem;
+  --font-size-h2: 1.25rem;
+  --font-size-h3: 1rem;
+  --font-size-normal: 0.938rem;
+  --font-size-small: 0.813rem;
+  --font-size-smaller: 0.75rem;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+
+  /*  Margin  */
+  --m-0: 0;
+  --m-05: 0.5rem;
+  --m-1: 1rem;
+  --m-105: 1.5rem;
+  --m-2: 2rem;
+  --m-205: 2.5rem;
+  --m-3: 3rem;
+
+  /*  z index  */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+
+  /*  Scrollbar  */
+  --scrollbar-width: 1rem;
+  --scrollbar-bd-color: #707070;
+  --scrollbar-thumb-bd-color: #069c54;
+  --scrollbar-border-radius: 0.25rem;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    /*  Font and typography  */
+    --biggest-font-size: 4rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/*====================== BASE ======================*/
+/*
+===========================================================
+Todo ================= BASE CSS =========================== 
+===========================================================
+*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* For Scrollbar */
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  background-color: var(--scrollbar-bd-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-bd-color);
+  border-radius: var(--scrollbar-border-radius);
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: var(--m-0);
+}
+
+ul {
+  padding: var(--m-0);
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+===========================================================
+Todo ================= Body CSS =========================== 
+===========================================================
+*/
+body {
+  /* Margin If The Header Is fixed Top And It Is First Element */
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size-normal);
+  background-color: var(--color-body);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    margin: 0;
+  }
+}
+
+/* Variables Dark theme */
+body.dark-theme {
+  --title-color: #f1f3f2;
+  --title-color: #c7d1cc;
+  --body-color: #1d2521;
+  --container-color: #27302c;
+}
+
+/*
+===========================================================
+Todo ================= Button Dark/Light ================== 
+===========================================================
+*/
+.change-theme {
+  position: absolute;
+  right: 1rem;
+  top: 1.8rem;
+  color: var(--color-text);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .change-theme {
+    position: inherit;
+    margin-left: var(--m-2);
+  }
+}
+
+/*
+===========================================================
+Todo ================= CLASS CSS ========================== 
+===========================================================
+*/
+.section {
+  padding: 4rem 0 2rem;
+}
+
+.section-title,
+.section-subtitle {
+  text-align: center;
+}
+
+.section-title {
+  font-size: var(--font-size-h1);
+  color: var(--color-title);
+  margin-bottom: var(--m-3);
+}
+
+.section-subtitle {
+  display: block;
+  color: var(--color-first);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--m-1);
+}
+
+@media screen and (min-width: 768px) {
+  .section {
+    padding-top: 8rem;
+  }
+}
