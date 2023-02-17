@@ -18,8 +18,10 @@ Todo ================= VARIABLES CSS ======================
   --color-text-light: #a6a6a6;
   --color-body: #fbfbfb;
   --color-container: #ffffff;
-  --color-scroll-ber: ;
-  --color-scroll-thumb: ;
+  --color-scrollbar-bg: #707070;
+  --color-scrollbar-thumb-bg: var(--color-first);
+  --color-button: var(--color-first);
+  --color-selection-bg: var(--color-first);
 
   /*  Font => Size, Weight And Typography  */
   --font-family-body: "Poppins", sans-serif;
@@ -49,9 +51,10 @@ Todo ================= VARIABLES CSS ======================
 
   /*  Scrollbar  */
   --scrollbar-width: 1rem;
-  --scrollbar-bd-color: #707070;
-  --scrollbar-thumb-bd-color: #069c54;
   --scrollbar-border-radius: 0.25rem;
+
+  /* Button */
+  --font-size-button: 18px;
 }
 
 @media screen and (min-width: 768px) {
@@ -87,12 +90,21 @@ html {
 
 ::-webkit-scrollbar {
   width: var(--scrollbar-width);
-  background-color: var(--scrollbar-bd-color);
+  background-color: var(--color-scrollbar-bg);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-scrollbar-thumb-bg);
+  border-radius: var(--scrollbar-border-radius);
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb-bd-color);
-  border-radius: var(--scrollbar-border-radius);
+/* For Selection */
+::-moz-selection {
+  color: #fff;
+  background-color: var(--color-selection-bg);
+}
+::selection {
+  color: #fff;
+  background-color: var(--color-selection-bg);
 }
 
 h1,
@@ -126,26 +138,23 @@ body {
   /* Reset Body Margin*/
   margin: 0;
   /* Margin If The Header Is fixed Top And It Is First Element */
-  // margin: var(--header-height) 0 0 0;
-  font-family: var(--font-body);
+  /* margin: var(--header-height) 0 0 0; */
+  font-family: var(--font-family-body);
   font-size: var(--font-size-normal);
   background-color: var(--color-body);
   color: var(--color-text);
   line-height: 1.6;
-}
-
-@media screen and (min-width: 768px) {
-  body {
+  @media screen and (min-width: 768px) {
     margin: 0;
   }
 }
 
 /* Variables Dark theme */
 body.dark-theme {
-  --title-color: #f1f3f2;
-  --title-color: #c7d1cc;
-  --body-color: #1d2521;
-  --container-color: #27302c;
+  --color-title: #f1f3f2;
+  --color-text: #f1f3f2;
+  --color-body: #1d2521;
+  --color-container: #27302c;
 }
 
 /*
@@ -160,10 +169,7 @@ Todo ================= Button Dark/Light ==================
   color: var(--color-text);
   font-size: 1rem;
   cursor: pointer;
-}
-
-@media screen and (min-width: 768px) {
-  .change-theme {
+  @media screen and (min-width: 768px) {
     position: inherit;
     margin-left: var(--m-2);
   }
@@ -176,28 +182,55 @@ Todo ================= CLASS CSS ==========================
 */
 .section {
   padding: 4rem 0 2rem;
-}
-
-.section-title,
-.section-subtitle {
-  text-align: center;
-}
-
-.section-title {
-  font-size: var(--font-size-h1);
-  color: var(--color-title);
-  margin-bottom: var(--m-3);
-}
-
-.section-subtitle {
-  display: block;
-  color: var(--color-first);
-  font-weight: var(--font-weight-medium);
-  margin-bottom: var(--m-1);
-}
-
-@media screen and (min-width: 768px) {
-  .section {
+  .section-title,
+  .section-subtitle {
+    text-align: center;
+  }
+  .section-title {
+    font-size: var(--font-size-h1);
+    color: var(--color-title);
+    margin-bottom: var(--m-3);
+  }
+  .section-subtitle {
+    display: block;
+    color: var(--color-first);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--m-1);
+  }
+  @media screen and (min-width: 768px) {
     padding-top: 8rem;
   }
+}
+
+/*
+===========================================================
+Todo ================= Layout ============================= 
+===========================================================
+*/
+
+.bd-container {
+  max-width: 960px;
+  width: calc(100% - 2rem);
+  margin-left: var(--m-2);
+  margin-right: var(--m-2);
+  @media screen and (min-width: 960px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/*
+===========================================================
+Todo ================= Header ============================= 
+===========================================================
+*/
+// If You Use Header To Be Fixed Element
+.header {
+  /* If You Use Header To Be Fixed Element */
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--z-fixed);
+  background-color: var(--color-body);
 }
